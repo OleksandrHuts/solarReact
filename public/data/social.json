@@ -1,0 +1,12 @@
+[
+    {
+        "url": "/",
+        "id": "facebook",
+        "icon": "fb.svg"
+    },
+    {
+        "url": "/",
+        "id": "youtube",
+        "icon": "youtube.svg"
+    }
+]

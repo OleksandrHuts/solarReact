@@ -1,0 +1,19 @@
+[
+    {
+        "title": "Як це працює",
+        "url" : "#how_section"
+    },
+    {
+        "title": "як ми працюємо",
+        "url" : "#case_section"
+    },{
+        "title": "КЕЙС",
+        "url" : "#advantages_section"
+    },{
+        "title": "пакети",
+        "url" : "#products"
+    },{
+        "title": "чому ми?",
+        "url" : "#cerfs_section"
+    }
+]

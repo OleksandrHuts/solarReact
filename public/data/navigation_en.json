@@ -1,0 +1,19 @@
+[
+    {
+        "title": "How it works",
+        "url" : "#how_section"
+    },
+    {
+        "title": "how we work",
+        "url" : "#case_section"
+    },{
+        "title": "case",
+        "url" : "#advantages_section"
+    },{
+        "title": "packages",
+        "url" : "#products"
+    },{
+        "title": "why we?",
+        "url" : "#cerfs_section"
+    }
+]
