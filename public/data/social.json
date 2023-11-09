@@ -2,11 +2,11 @@
     {
         "url": "/",
         "id": "facebook",
-        "icon": "fb.svg"
+        "iconKey": "faFacebook"
     },
     {
         "url": "/",
         "id": "youtube",
-        "icon": "youtube.svg"
+        "iconKey": "faYoutube"
     }
 ]

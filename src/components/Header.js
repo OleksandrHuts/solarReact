@@ -1,13 +1,27 @@
 import { useEffect, useState } from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYoutube, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from '../assets/img/logo.svg';
 
-export default function SiteHeader() {
+export default function SiteHeader(props) {
     const [navList, setNavList] = useState([]);
     const [socialList, setSocialList] = useState([]);
 
+    const location = useLocation();
+    console.log(location);
+
+    const icons = {
+        faFacebook: {
+            component: faFacebook
+        },
+        faYoutube: {
+            component: faYoutube
+        }
+    }
+
     const getNavList = () => {
-        fetch('./data/navigation_ua.json')
+        fetch('/data/navigation_ua.json')
             .then(res => res.json())
             .then(resp => {
                 setNavList(resp)
@@ -15,7 +29,7 @@ export default function SiteHeader() {
     }
 
     const getSocialList = () => {
-        fetch('./data/social.json')
+        fetch('/data/social.json')
             .then(res => res.json())
             .then(resp => {
                 setSocialList(resp)
@@ -27,9 +41,12 @@ export default function SiteHeader() {
         getSocialList();
     }, []);
 
-    const socialListRender = socialList.map((item, index) => <a href={item.url} key={index}> <img src={item.icon} alt="" /></a>)
+    const socialListRender = socialList.map((item, index) => <a href={item.url} key={index}> <FontAwesomeIcon icon={icons[item.iconKey].component} /></a>)
 
-    const navListRender = navList.map((item, index) => <li key={index}> <a href={item.url}>{item.title}</a></li>)
+    const navListRender = navList.map((item, index) => {
+        const url = item.id ? item.url+'/'+item.id : item.url;
+        return <li key={index}> <NavLink to={url}>{item.title}</NavLink></li>
+    })
 
     return (
         <header className="header">
@@ -40,7 +57,7 @@ export default function SiteHeader() {
                             <img src={logo} alt="#" />
                         </a>
                         <ul className="nav_list flex_row">
-                           {navListRender}
+                            {navListRender}
                         </ul>
                         <div className="soc_links">
                             {socialListRender}

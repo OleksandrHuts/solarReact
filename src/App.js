@@ -1,14 +1,23 @@
 import './styles/main.scss'
+import { Routes, Route } from "react-router-dom";
 
-//component
-import SiteHeader from './components/Header';
-import MainBanner from './components/MainBanner';
+// pages
+import Home from './pages/Home';
+import About from './pages/About';
+import Default from './layouts/Default';
+import Movie from './pages/Movie';
 
 function App() {
+
   return (
     <div className="App page_wrapper">
-        <SiteHeader />
-        <MainBanner />
+      <Routes>
+        <Route path="/" element={<Default />}>
+          <Route index element={<Home />} />
+          <Route path='about/' element={<About />} />
+          <Route path="movie/:id" element={<Movie/>} />
+        </Route>
+      </Routes>
     </div>
   );
 }
