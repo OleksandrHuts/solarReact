@@ -1,24 +1,12 @@
 import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faYoutube, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { Link, NavLink, useLocation } from "react-router-dom";
-import logo from '../assets/img/logo.svg';
+import { NavLink } from "react-router-dom";
+import logo from '../assets/img/logo.jpg';
+import { Container } from '@mui/material';
 
 export default function SiteHeader(props) {
     const [navList, setNavList] = useState([]);
-    const [socialList, setSocialList] = useState([]);
 
-    const location = useLocation();
-    console.log(location);
-
-    const icons = {
-        faFacebook: {
-            component: faFacebook
-        },
-        faYoutube: {
-            component: faYoutube
-        }
-    }
+    // const location = useLocation();
 
     const getNavList = () => {
         fetch('/data/navigation_ua.json')
@@ -28,20 +16,9 @@ export default function SiteHeader(props) {
             })
     }
 
-    const getSocialList = () => {
-        fetch('/data/social.json')
-            .then(res => res.json())
-            .then(resp => {
-                setSocialList(resp)
-            })
-    }
-
     useEffect(()=> {
         getNavList();
-        getSocialList();
     }, []);
-
-    const socialListRender = socialList.map((item, index) => <a href={item.url} key={index}> <FontAwesomeIcon icon={icons[item.iconKey].component} /></a>)
 
     const navListRender = navList.map((item, index) => {
         const url = item.id ? item.url+'/'+item.id : item.url;
@@ -50,7 +27,7 @@ export default function SiteHeader(props) {
 
     return (
         <header className="header">
-            <div className="container">
+            <Container>
                 <nav className="nav">
                     <div className="flex_row page_nav">
                         <a href="/" className="logo_wrapper">
@@ -59,12 +36,9 @@ export default function SiteHeader(props) {
                         <ul className="nav_list flex_row">
                             {navListRender}
                         </ul>
-                        <div className="soc_links">
-                            {socialListRender}
-                        </div>
                     </div>
                 </nav>
-            </div>
+            </Container>
         </header>
     )
 }

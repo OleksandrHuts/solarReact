@@ -1,3 +1,8 @@
+@import '@fontsource/roboto/300.css';
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/700.css';
+
 @import 'normalize';
 @import 'vars';
 @import 'fonts';
@@ -681,14 +686,6 @@ a {
         height: 45px;
     }
 
-    .header {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 10;
-    }
-
     .text_col,
     .form_col {
         width: 100%;
@@ -906,4 +903,32 @@ textarea, select {
         font-weight: bold;
         color: lightcoral;
     }
+}
+
+.card_title {
+    min-height: 50px;
+}
+
+.card_header {
+    .MuiCardHeader-title {
+        min-height: 70px;
+    }
+}
+.card_link {
+    padding: 8px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: antiquewhite;
+    border-radius: 4px;
+}
+
+.movie_poster {
+    width: 100%;
+}
+
+.pagination_wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
 }
