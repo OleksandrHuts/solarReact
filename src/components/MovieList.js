@@ -31,7 +31,7 @@ export default function MovieList() {
                     <CardMedia
                         component="img"
                         height="194"
-                        image={item.Poster && item.Poster !=="N/A" ? item.Poster : 'http://via.placeholder.com/640x360'}
+                        image={item.Poster && item.Poster !=="N/A" ? item.Poster : 'https://via.placeholder.com/640x360'}
                         alt={item.Title}
                     />
                     <CardContent>

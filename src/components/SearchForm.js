@@ -16,7 +16,7 @@ import { useRef, useState, useEffect } from 'react';
 import { moviesStore } from '../store/movies.js';
 import SearchIcon from '@mui/icons-material/Search';
 
-const url = 'http://www.omdbapi.com/?apikey=88150c8c';
+const url = 'https://www.omdbapi.com/?apikey=88150c8c';
 
 export default function SearchForm(props) {
     const inputRef = useRef(null);
