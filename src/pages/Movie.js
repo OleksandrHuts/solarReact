@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Grid, Paper, Typography } from "@mui/material";
-const url = 'http://www.omdbapi.com/?apikey=88150c8c';
+const url = 'https://www.omdbapi.com/?apikey=88150c8c';
 
 
 export default function Movie() {
